@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculator</title>
+    <style>
+      body {
+        background-image: url("https://lh6.googleusercontent.com/proxy/dVgC6TzmRH-4uhdcqZK37RyRErOz46Y4S9W8Pw3tfRHyPluwELODHfvrx-SorsUFq5YphXy1VXIxQO2oXlF7GfjeRLY4hsH9c20FqCM4Tpk");
+        object-fit: cover;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: Arial, Sans-Serif;
+        color: black;
+        overflow: hidden;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .calculator {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px gray solid;
+        border-radius: 30px;
+        width: 260px;
+        padding: 0px 15px 15px 15px;
+        margin-top: 100px;
+      }
+
+      #textarea {
+        width: 84%;
+        padding: 15px;
+        font-size: 35px;
+        outline-style: none;
+        overflow: hidden;
+        background-color: transparent;
+        border: none;
+        margin-bottom: 25px;
+        color: white;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        background-color: white;
+        color: black;
+        font-size: 20px;
+        border: none;
+        border-radius: 36px;
+        width: 55px;
+        height: 55px;
+        transition: all 0.6s;
+        margin: 5px;
+      }
+
+      .clear {
+        background-color: #ff4136;
+        color: white;
+        transition: background-color 0.6s ease, border-radius 3s;
+      }
+
+      .clear:active {
+        opacity: 0.4;
+      }
+
+      .delete {
+        background-color: #ff4136;
+        color: white;
+      }
+
+      .equal,
+      .multiple,
+      .division,
+      .add {
+        background-color: #fd8731;
+        color: white;
+      }
+
+      .btn:active {
+        border-radius: 13px;
+      }
+
+      .btn:hover {
+        background-color: #333;
+        color: white;
+        /*opacity: 0.3;*/
+      }
+
+    </style>
+  </head>
+  <body> 
+    <div class="calculator">
+      <input type="text" id="textarea" readonly />
+
+      <div class="row">
+        <button class="btn clear" onclick="clearToResult()">AC</button>
+
+        <button class="btn parameter" onclick="marks( )">( )</button>
+
+        <button class="btn percentage" onclick="addTo('%')">%</button>
+
+        <button class="btn division" onclick="addTo('/')">÷</button>
+
+        <button class="btn seven" onclick="addTo('7')">7</button>
+
+        <button class="btn eight" onclick="addTo('8')">8</button>
+
+        <button class="btn nine" onclick="addTo('9')">9</button>
+
+        <button class="btn multiple" onclick="addTo('*')">x</button>
+      
+        <button class="btn four" onclick="addTo('4')">4</button>
+
+        <button class="btn five" onclick="addTo('5')">5</button>
+
+        <button class="btn six" onclick="addTo('6')">6</button>
+
+        <button class="btn multiple" onclick="addTo('-')">-</button>
+ 
+        <button class="btn one" onclick="addTo('1')">1</button>
+
+        <button class="btn two" onclick="addTo('2')">2</button>
+
+        <button class="btn three" onclick="addTo('3')">3</button>
+
+        <button class="btn add" onclick="addTo('+')">+</button>
+     
+        <button class="btn zero" onclick="addTo('0')">0</button>
+
+        <button class="btn decimal-point" onclick="addTo('.')">.</button>
+
+        <button class="btn delete" onclick="deleteToResult()">del</button>
+
+        <button class="btn equal" onclick="answer()">=</button>
+      </div>
+<script>
+
+      let textarea = document.getElementById("textarea");
+
+      function addTo(value) {
+        textarea.value += value;
+        console.log(textarea.value);
+      }
+
+      function answer() {
+        textarea.value = eval(textarea.value)
+      }
+
+      function marks() {
+        textarea.value = "(" + textarea.value + ")";
+        textarea.value = textarea.value;
+      }
+
+      function deleteToResult() {
+        textarea.value = textarea.value.substring(0, textarea.value.length - 1);
+      }
+
+      // var string = "Scaler Academy";
+
+      // string = string.substring(0, string.length - 1);
+      // console.log(string);
+
+      function clearToResult() {
+        textarea.value = textarea.value.substring(
+          0,
+          textarea.value.length - textarea.value.length
+        );
+      }
+    </script>
+  </body>
+</html>
